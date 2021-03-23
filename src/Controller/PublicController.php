@@ -16,6 +16,6 @@ class PublicController extends AbstractController
      */
     public function index(): Response
     {
-        return new Response('Instance IS Omnia.');
+        return $this->render('public/login.html.twig');
     }
 }

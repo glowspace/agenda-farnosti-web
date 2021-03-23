@@ -1,0 +1,93 @@
+{# Main public layout #}
+<!DOCTYPE html>
+<html lang="cs-cz"
+      onclick="aktivita();">
+
+    {% include 'layout/head.html.twig' with {'title': 'dsda'} %}
+
+<body>
+    {# <body <?php echo implode(' ', array_map(function($prop, $value) {
+			return $prop.'="'.$value.'"';
+		}, array_keys($page_body_prop), $page_body_prop)) ;?>> #}
+
+    <!-- POSSIBLE CLASSES: minified, fixed-ribbon, fixed-header, fixed-width
+         You can also add different skin classes such as "smart-skin-1", "smart-skin-2" etc...-->
+
+    {#
+    <?php
+                if (!$no_main_header) {
+            ?> #}
+
+    <!-- HEADER -->
+
+    {# <?php if($_SESSION['farnost_nastaveni_barva_zahlavi'] != "" && $_SESSION['farnost_nastaveni_barva_zahlavi'] != "#000000" && $_SESSION['farnost_nastaveni_barva_zahlavi'] != "rgb(0, 0, 0)") {echo 'style="background-color: '.$_SESSION['farnost_nastaveni_barva_zahlavi'].'; background-image: none;"';} ?> #}
+
+    {% include 'layout/top_menu.html.twig' %}
+
+    <!-- END HEADER -->
+    <!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+    Note: These tiles are completely responsive,
+    you can add as many as you like
+    -->
+    <div id="shortcut">
+        <ul>
+            <!--<li>
+                <a href="#ajax/inbox.php" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+            </li>
+            <li>
+                <a href="#ajax/calendar.php" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+            </li>
+            <li>
+                <a href="#ajax/gmap-xml.php" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+            </li>
+            <li>
+                <a href="#ajax/invoice.php" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+            </li>
+            <li>
+                <a href="#ajax/gallery.php" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+            </li>-->
+            <?php if($_SESSION['pravo']['36']) { ?>
+            <li>
+                <a href="#authorised/penezni_denik.php"
+                   class="jarvismetro-tile big-cubes bg-color-greenLight">
+                    <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span style="font-size: 11px !important;">Peněžní deník </span> </span>
+                </a>
+            </li>
+            <?php } ?>
+            <?php if($_SESSION['pravo']['34']) { ?>
+            <li>
+                <a href="#authorised/agenda_kniha_intencni.php"
+                   class="jarvismetro-tile big-cubes bg-color-blueDark">
+                    <span class="iconbox"> <i class="fa fa-pencil-square-o fa-4x"></i> <span style="font-size: 11px !important;">Intenční kniha </span> </span>
+                </a>
+            </li>
+            <?php } ?>
+            <?php if($_SESSION['pravo']['65']) { ?>
+            <li>
+                <a href="#authorised/agenda_porad_bohosluzeb.php"
+                   class="jarvismetro-tile big-cubes bg-color-blueDark">
+                    <span class="iconbox"> <i class="fa fa-pencil-square-o fa-4x"></i> <span style="font-size: 11px !important;">Pořad bohoslužeb </span> </span>
+                </a>
+            </li>
+            <?php } ?>
+            <?php if($_SESSION['pravo']['38']) { ?>
+            <li>
+                <a href="#authorised/agenda_matrika_pohrbenych.php"
+                   class="jarvismetro-tile big-cubes bg-color-purple">
+                    <span class="iconbox"> <i class="fa fa-pencil-square-o fa-4x"></i> <span style="font-size: 11px !important;">Matrika pohřbených </span> </span>
+                </a>
+            </li>
+            <?php } ?>
+            <li>
+                <a rel="<?php echo $php->zakoduj($_SESSION['uzivatel_id']); ?>"
+                   id="mujvlastniucetuzivatele"
+                   href="javascript:readyFnucet();"
+                   class="jarvismetro-tile big-cubes bg-color-orangeDark">
+                    <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span style="font-size: 11px !important;">Můj účet </span> </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

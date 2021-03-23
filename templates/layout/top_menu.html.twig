@@ -1,0 +1,255 @@
+<header id="header">
+
+    <div id="logo-group">
+            <span id="logo"> <img src="{{ asset('/img/logo.png') }}"
+                                  alt="IS OMNIA"/> </span>
+    </div>
+
+    <div class="project-context">
+        <span class="label">Aktivní farnost:</span>
+        <span id="project-selector"
+              class="popover-trigger-element dropdown-toggle"
+              data-toggle="dropdown"><?php echo $_SESSION['uzivatel_farnost_aktivni']; ?>
+            <i class="fa fa-angle-down"></i></span>
+        <!-- Suggestion: populate this list with fetch and push technique -->
+        <ul class="dropdown-menu"
+            style="max-height: 350px; overflow-y:auto;">
+            {# <?php echo $_SESSION['uzivatel_farnost_seznam']; ?> #}
+            <li class="divider"></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-power-off"></i> Zrušit a zavřít</a></li>
+        </ul>
+        <!-- end dropdown-menu-->
+    </div>
+    <!-- end projects dropdown -->
+    <!-- pulled right: nav area -->
+    <div class="pull-right">
+        <!-- collapse menu button -->
+        <div id="hide-menu"
+             class="btn-header pull-right">
+                <span> <a href="javascript:void(0);"
+                          title="Skrýt levé menu"
+                          data-action="toggleMenu"><i class="fa fa-reorder"></i></a> </span>
+        </div>
+        <!-- end collapse menu -->
+        <!-- #MOBILE -->
+        <!-- Top menu profile link : this shows only when top menu is active -->
+        <ul id="mobile-profile-img"
+            class="header-dropdown-list hidden-xs padding-5">
+            <li class="">
+                <a href="#"
+                   class="dropdown-toggle no-margin userdropdown"
+                   data-toggle="dropdown">
+                    <img src="<?php echo ASSETS_URL; ?>/img/avatars/<?php echo $_SESSION['uzivatel_avatar_url']; ?>"
+                         alt="<?php echo $_SESSION['uzivatel_celejmeno']; ?>"
+                         class="online"/>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="javascript:void(0);"
+                           class="padding-10 padding-top-0 padding-bottom-0"
+                           data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> Profil</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);"
+                           class="padding-10 padding-top-0 padding-bottom-0"
+                           data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Celoobrazovkové zobrazení</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="login.php"
+                           class="padding-10 padding-top-5 padding-bottom-5"
+                           data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i>
+                            <strong><?php echo $_COOKIE['odhlaseni_odhlasit_se']; ?></strong></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- logout button -->
+        <div id="logout"
+             class="btn-header transparent pull-right">
+                <span> <a href="<?php echo APP_URL; ?>/login.php"
+                          title="<?php echo $_COOKIE['odhlaseni_odhlasit_se']; ?>"
+                          data-action="userLogout"
+                          data-logout-msg="<?php echo $_COOKIE['po_odhlaseni_zavrit_zalozku_prohlizece']; ?>"><i class="fa fa-sign-out"></i></a> </span>
+        </div>
+        <!-- end logout button -->
+        <!-- search mobile button (this is hidden till mobile view port) -->
+        <!--<div id="search-mobile" class="btn-header transparent pull-right">
+            <span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+        </div>-->
+        <!-- end search mobile button -->
+        <!-- input: search field -->
+        {# <?php if($_SESSION['pravo']['130']) { ?> #}
+        <form autocomplete="off"
+              action="javascript:void(0);"
+              class="header-search pull-right">
+            <input style="display:none"
+                   name="hledani"/>
+            <input type="password"
+                   name="heslo"
+                   style="display:none"/>
+            <input type="text"
+                   name="param_hledej_header1"
+                   style="display:none"
+                   placeholder="Prohledat záznamy"/>
+            <input autocomplete="off"
+                   type="text"
+                   name="param_hledej_header"
+                   placeholder="Prohledat záznamy"
+                   id="fld_rejstriky"/>
+            <ul class="list-group"
+                id="vysledky-fld_rejstriky"></ul>
+            <!--<select name="param" class="js-data-example-ajax" style="width: 250px;" id="search-fld_rejstriky"></select>-->
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="javascript:void(0);"
+               id="cancel-search-js"
+               title="Cancel Search"><i class="fa fa-times"></i></a>
+        </form>
+        {# <?php } ?> #}
+        <!-- end input: search field -->
+        <!-- fullscreen button -->
+        <div id="fullscreen"
+             class="btn-header transparent pull-right">
+                <span> <a href="javascript:void(0);"
+                          title="Celá stránka"
+                          data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i></a> </span>
+        </div>
+        <!-- end fullscreen button -->
+        <!-- #Voice Command: Start Speech -->
+        <?php
+                        //dale session nastaveni prav pro mikrofon
+                        session_start();
+                        if($_SESSION['pravo']['51']) {
+                        ?>
+        <div id="speech-btn"
+             class="btn-header transparent pull-right hidden-sm hidden-xs">
+            <div>
+                <a href="javascript:void(0)"
+                   title="Hlasové příkazy"
+                   data-action="voiceCommand"><i class="fa fa-microphone"></i></a>
+                <div class="popover bottom">
+                    <div class="arrow"></div>
+                    <div class="popover-content">
+                        <h4 class="vc-title">Hlasové příkazy aktivovány <br><small>Prosím, vyslovujte čistě a přímo
+                                do mikrofonu</small></h4>
+                        <h4 class="vc-title-error text-center">
+                            <i class="fa fa-microphone-slash"></i> Hlasový příkaz selhal
+                            <br><small class="txt-color-red">Musíte <strong>"povolit"</strong> Mikrofon</small>
+                            <br><small class="txt-color-red">Musíte mít <strong>připojení k
+                                    internetu</strong></small>
+                        </h4>
+                        <a href="javascript:void(0);"
+                           class="btn btn-success"
+                           onclick="commands.help()">Zobrazit příkazy</a>
+                        <a href="javascript:void(0);"
+                           class="btn bg-color-purple txt-color-white"
+                           onclick="$('#speech-btn .popover').fadeOut(50);">Zavřít okno</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
+        <!-- end voice command -->
+        <!-- multiple lang dropdown : find all flags in the flags page -->
+        <?php if($_SESSION['admin']=="1"){ ?>
+
+        <?php
+                        $jazyk_vlajky = "";
+                        switch ($_COOKIE['jazyk']) {
+                            case 'cs':
+                                $jazyk_vlajky = 'cz';
+                                break;
+                            case 'sk':
+                                $jazyk_vlajky = 'sk';
+                                break;
+                            case 'en':
+                                $jazyk_vlajky = 'gb';
+                                break;
+                            case 'de':
+                                $jazyk_vlajky = 'de';
+                                break;
+                            case 'fr':
+                                $jazyk_vlajky = 'fr';
+                                break;
+                            case 'pl':
+                                $jazyk_vlajky = 'pl';
+                                break;
+                            case 'uk':
+                                $jazyk_vlajky = 'ua';
+                                break;
+                            case 'ru':
+                                $jazyk_vlajky = 'ru';
+                                break;
+                        }
+                        if($_COOKIE['jazyk']==""){$jazyk_vlajky = 'cz';}
+                         ?>
+
+        <ul class="header-dropdown-list hidden-xs">
+            <li>
+                <a href="#"
+                   class="dropdown-toggle"
+                   data-toggle="dropdown">
+                    <img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                         class="flag flag-<?php echo $jazyk_vlajky; ?>"
+                         alt="default"/> <span> <?php echo strtoupper($jazyk_vlajky); ?></span>
+                    <i class="fa fa-angle-down"></i> </a>
+                <ul class="dropdown-menu pull-right">
+                    <li
+                    <?php if($jazyk_vlajky=='cz'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('cs');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-cz"
+                                                                alt="Czech Republic"/> Česky</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='sk'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('sk');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-sk"
+                                                                alt=""/> Slovensky</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='gb'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('en');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-gb"
+                                                                alt="English"/> English</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='de'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('de');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-de"
+                                                                alt="German"/> Deutsch</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='fr'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('fr');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-fr"
+                                                                alt="France"/> Français</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='pl'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('pl');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-pl"
+                                                                alt="Polski"/> Polski</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='ua'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('uk');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-ua"
+                                                                alt="Ukraine"/> Українська</a>
+                    </li>
+                    <li
+                    <?php if($jazyk_vlajky=='ru'){echo ' class="active"';} ?>>
+                    <a href="javascript:obnovjazyk('ru');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif"
+                                                                class="flag flag-ru"
+                                                                alt="Russia"/> Русский язык</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <?php } ?>
+        <!-- end multiple lang -->
+    </div>
+    <!-- end pulled right: nav area -->
+</header>
