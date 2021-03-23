@@ -1,0 +1,412 @@
+.povinne {
+    color: red;
+}
+.nezobraz {
+    visibility: hidden;
+    display: none;
+}
+.help-block {
+    color: #7e0808;
+    font-weight: bold;
+}
+.chosen-choices {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 34px;
+    padding: 6px 12px;
+}
+.chosen-container-single .chosen-single  {
+    border-radius: 0px !important;
+    height: 32px !important;
+    padding: 4px 0 0 8px !important;
+    background: none;
+}
+.chosen-container-single .chosen-default  {
+    border-radius: 0px !important;
+    height: 32px !important;
+    padding: 4px 0 0 8px !important;
+    background: none !important;
+}
+.chosen-container-active.chosen-with-drop .chosen-single  {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #eeeeee), color-stop(80%, #ffffff));
+    background-image: -webkit-linear-gradient(#eef4ff 20%, #ffffff 80%);
+    background-image: -moz-linear-gradient(#eef4ff 20%, #ffffff 80%);
+    background-image: -o-linear-gradient(##eef4ff 20%, #ffffff 80%);
+    background-image: linear-gradient(#eef4ff 20%, #ffffff 80%);
+}
+.chosen-container-single .chosen-single {
+    /*border: 1px solid #71bcff;*/
+    background-color: #eef4ff;
+}
+.chosen-container-single .chosen-default {
+    border: 1px solid grey;
+}
+.chosen-container ul.chosen-results li.highlighted {
+  background-color: #a90329;
+  background-image: none;
+}
+
+.form-control-feedback {
+    /* To make the feedback icon visible */
+    z-index: 100;
+}
+form.cmxform label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic
+}
+div.error { display: none; }
+input {	border: 1px solid black; }
+input.checkbox { border: none }
+.form-control:focus {
+    border-color: #8647de;
+    border-width: 1px;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(134,71,222,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(134,71,222,.6);
+}
+.labelfocus {
+    font-weight:bold;
+    color: #8647de;
+}
+input:focus { border: 1px solid #8647de !important; }
+input.error { border: 1px dotted red; }
+form.cmxform .gray * { color: gray; }
+.chosen-container .chosen-drop {
+    position: absolute !important;
+    /*position: relative !important;
+    z-index:150000;*/
+}
+/*toto nize usmernuje sloupce v tabulce, aby byly stejne siroke v pripade tabulky na sirku. Kvuli tomu se spatne zobrazuje zacatek tabulek mezi zalozkami
+.fixed_width_dt {
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap:break-word;
+}*/
+/*toto nize kontroluje, zda je doplnena hodnota a kdyztak podbarvi zelene*/
+form input[type="text"]:not(:placeholder-shown) {
+    background-color: #eef4ff;
+}
+form input[type="email"]:not(:placeholder-shown) {
+    background-color: #eef4ff;
+}
+form input[type="number"]:not(:placeholder-shown) {
+    background-color: #eef4ff;
+}
+textarea:not(:placeholder-shown) {
+    background-color: #eef4ff;
+}
+input[type="date"]:not(:in-range) {
+    background-color: #eef4ff;
+}
+input[type="time"]:not(:in-range) {
+    background-color: #eef4ff;
+}
+input[type="color"] {
+    padding: 0px;
+}
+/*Toto zpusobi lepsi orientaci v casti Legend*/
+legend {
+    font-weight: bold;
+}
+.ui-autocomplete {
+z-index: 1110 !important;
+}
+.widget-body-ajax-loading::before{content:url(../img/loading.gif) !important;transform: scale(.5); padding-top:18%;text-align:center;font-weight:700;font-size:16px;color:#fff;display:block;background:rgba(255,255,255,.4);height:100%;z-index:1;width:100%;position:absolute}
+#sparks li {
+ padding: 5px 10px !important; 
+}
+.smart-style-5 .bootstrap-tagsinput, .smart-style-5 .form-control, .smart-style-5 .input-group-addon, .smart-style-5 .select2-container .select2-choice, .smart-style-5 .select2-container .select2-choice .select2-arrow, .smart-style-5 .select2-container-multi .select2-choices, .smart-style-5 .smart-form .input input, .smart-style-5 .smart-form .select select, .smart-style-5 .smart-form .textarea textarea {
+    color: #191717;
+}
+body.smart-style-6 #logo img {
+    display: initial !important;
+}
+body.smart-style-5 #main {
+    min-height: 100vh;
+}
+body.smart-style-5 input, body.smart-style-5 select {
+    background: rgba(255,255,255,.2);
+    border-color: rgba(255,255,255,.4);
+}
+body.smart-style-6 div.dt-button-collection.dropdown-menu {
+    backface-visibility: visible;
+    -webkit-transform: scale(1);
+    opacity: 1;
+    display: block;
+    position: absolute;
+}
+body.smart-style-6 ::-webkit-scrollbar {
+     width: auto;
+}
+.popover {
+    z-index:18080 !important;
+}
+.popover .arrow {
+    visibility: hidden !important;
+}
+.sparks-info .sparklinebar {
+    display: block;
+    float: right;
+    margin: 3px 0 0 20px;
+}
+.qtip-default {
+    border: 1px solid #a5a4a1;
+    background-color: #eff0f1;
+    color: #292929;
+    font-size: small;
+    max-width: 100vh;
+    min-width: 50px;
+    margin: 20px;
+}
+.cervenyradekdata {
+    background-color: #ffd3dd;
+}
+/*odstraneni sipek u type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin:  0;
+}
+input[type="number"] {
+    -moz-appearance:textfield;
+}
+/*--------------------------------*/
+body.smart-style-6 .bg-color-yellow, body.smart-style-6 .slider-warning+.slider-track>.slider-selection {
+    background: #b09b5b!important;
+}
+.header-search>.select2-container .select2-choice, .select2-selection {
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    min-width: 200px;
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    outline: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    border-color: #bfbfbf;
+    background: #fff;
+    color: #404040;
+    appearance: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    margin-top: 10px;
+    line-height: normal;
+    top: 0px !important;
+}
+.header-search>.select2-container .select2-choice .select2-arrow, .select2-selection__arrow {
+    display:none;
+}
+.header-search>.select2-container--open {
+    top: 15px !important;
+}
+.header-search>.select2-search__field {
+    width:100% !important;
+}
+.header-search>.select2-container .select2-search--inline {
+    width:100%;
+}
+#select2-search-fld_rejstriky-container .select2-selection__placeholder{
+   padding-top: 7px;
+   display: block;
+}
+.select2-container .select2-container--default .select2-container--open {
+    top:22px;
+}
+#vysledky-fld_rejstriky{
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index:100001;
+}
+.link-class:hover{
+   background-color:#f1f1f1;
+  }
+.header-search>input[type=text] {
+    min-width:300px;
+}
+
+div.dt-button-collection ul.dropdown-menu {
+    display: block;
+    z-index: 2002;
+    min-width: 100%;
+    position: initial;
+}
+div.dt-button-collection>:last-child {
+    display: block !important;
+    -webkit-column-gap: 8px;
+    -moz-column-gap: 8px;
+    -ms-column-gap: 8px;
+    -o-column-gap: 8px;
+    column-gap: 8px;
+}
+.smart-style-6 div.dt-button-collection {
+    position: absolute;
+    transform: scale(1);
+    opacity: 1;
+    top: 100%;
+    left: 0;
+    z-index: 2002;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+}
+div.dt-button-collection {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.dt-buttons.btn-group {
+    right: 1px;
+    text-align: right;
+    margin-bottom: -45px;
+}
+.copy_rows {
+    visibility:hidden;
+    display:none;
+}
+table.dataTable thead .sorting_desc:after {
+    content: none;
+}
+table.dataTable thead .sorting_asc:after {
+    content: none;
+}
+.smart-style-6 .dt-button-collection .dropdown-menu {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+}
+.dt-button-collection {
+    z-index:2002;
+}
+
+.chosen-choices{
+   border-radius: 0px;
+}
+.chosen-container-active .chosen-choices {
+    border: 1px solid #8647de !important;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+    /*padding: 0 0px !important;*/
+}
+.chosen-container-active .chosen-choices .search-field input[type="text"]:not(:placeholder-shown) {
+    /*padding-left: 8px !important;*/
+}
+.chosen-container-multi .chosen-choices li.search-choice{
+    padding: 1px 28px 1px 8px;
+    margin: 4px 0 3px 5px;
+    position: relative;
+    line-height: 18px;
+    color: #000 !important;
+    cursor: default;
+    border: 1px solid #66afe9;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #eef4ff;
+    background-image:none;
+    background-size: 100% 0px;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+}
+
+
+.fc-event-dot{display:inline-block;width:10px;height:10px;border-radius:5px}.fc-rtl .fc-list-view{direction:rtl}.fc-list-view{border-width:1px;border-style:solid}.fc .fc-list-table{table-layout:auto}.fc-list-table td{border-width:1px 0 0;padding:8px 14px}.fc-list-table tr:first-child td{border-top-width:0}.fc-list-heading{border-bottom-width:1px}.fc-list-heading td{font-weight:700}.fc-ltr .fc-list-heading-main{float:left}.fc-ltr .fc-list-heading-alt,.fc-rtl .fc-list-heading-main{float:right}.fc-rtl .fc-list-heading-alt{float:left}.fc-list-item.fc-has-url{cursor:pointer}.fc-list-item-marker,.fc-list-item-time{white-space:nowrap;width:1px}.fc-ltr .fc-list-item-marker{padding-right:0}.fc-rtl .fc-list-item-marker{padding-left:0}.fc-list-item-title a{text-decoration:none;color:inherit}.fc-list-item-title a[href]:hover{text-decoration:underline}.fc-list-empty-wrap2{position:absolute;top:0;left:0;right:0;bottom:0}.fc-list-empty-wrap1{width:100%;height:100%;display:table}.fc-list-empty{display:table-cell;vertical-align:middle;text-align:center}.fc-unthemed .fc-list-empty{background-color:#eee}
+.fc-listWeek-view {
+    color: #fff;
+}
+#ui-datepicker-div .je_slavnost {
+        background-color: antiquewhite;
+}
+#ui-datepicker-div .je_svatek {
+        background-color: aliceblue;
+}
+#ui-datepicker-div .ui-datepicker-calendar td {
+    border: 1px solid #8e8e8e29;
+}
+#ui-datepicker-div .ui-datepicker-group {
+    padding-right: 10px;
+}
+#zahlavi_jarvis table .tooltip.left .tooltip-arrow {
+    top: auto !important;
+    right: auto !important;
+}
+#zahlavi_jarvis table .tooltip {
+    position: sticky !important;
+}
+audio
+{
+-webkit-transition:all 0.5s linear;
+-moz-transition:all 0.5s linear;
+-o-transition:all 0.5s linear;
+transition:all 0.5s linear;
+-moz-box-shadow: 2px 2px 4px 0px #006773;
+-webkit-box-shadow:  2px 2px 4px 0px #006773;
+box-shadow: 2px 2px 4px 0px #006773;
+-moz-border-radius:35px 35px 35px 35px ;
+-webkit-border-radius:35px 35px 35px 35px ;
+border-radius:35px 35px 35px 35px ;
+}
+
+.jarviswidget header:first-child .nav-tabs {
+        background-color: #4c4f53;
+}
+/* fix pro datatables filtrovaci policka, aby se zbytecne neroztahovaly */
+.filtruj select {
+    max-width:150px;
+}
+
+.bg-color-redder {
+    background-color: #ff4343!important;
+}
+.highlight {
+    background-color: rgba(123, 191, 236, 0.15);
+    color: initial;
+}
+.datatable .table-hover>tbody>tr:hover {
+/*puvodni hodnota #ecf3f8; */
+  background-color: rgba(183, 225, 255, 1) !important;
+}
+
+
+/*jq_menu start*/
+.float-right {
+    float: right!important;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+/*jq_menu end*/
+
+.jarviswidget-color-blueDark .tabs-left li:not(.active) a, .jarviswidget-color-blueDark>header>.jarviswidget-ctrls a {
+    color: #333!important; 
+}
+.dl-horizontal dt {
+    clear: initial;
+}
