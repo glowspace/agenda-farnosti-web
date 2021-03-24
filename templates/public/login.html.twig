@@ -1,3 +1,335 @@
 {% extends 'layout/layout.html.twig' %}
 
 {% block title %}Přihlášení do systému - omnia{% endblock title %}
+
+{% block content %}
+
+    <!-- ==========================CONTENT STARTS HERE ========================== -->
+    <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
+    <header id="header">
+        <!--<span id="logo"></span>-->
+        <div id="logo-group">
+            <span id="logo"> <img src="{{ asset('img/logo.png') }}" alt="SmartAdmin" /> </span>
+            <!-- END AJAX-DROPDOWN -->
+        </div>
+        <!--<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="<?php echo APP_URL; ?>/register.php" class="btn btn-danger">Create account</a> </span>-->
+        <span id="extr-page-header-space" class="dropdown">
+            {#
+    <?php
+    $jazyk_vlajky = "";
+    switch ($_COOKIE['jazyk']) {
+        case 'cs':
+            $jazyk_vlajky = 'cz';
+            break;
+        case 'sk':
+            $jazyk_vlajky = 'sk';
+            break;
+        case 'en':
+            $jazyk_vlajky = 'gb';
+            break;
+        case 'de':
+            $jazyk_vlajky = 'de';
+            break;
+        case 'fr':
+            $jazyk_vlajky = 'fr';
+            break;
+        case 'pl':
+            $jazyk_vlajky = 'pl';
+            break;
+        case 'uk':
+            $jazyk_vlajky = 'ua';
+            break;
+        case 'ru':
+            $jazyk_vlajky = 'ru';
+            break;
+    }
+     ?> #}
+            <ul class="header-dropdown-list hidden-xs">
+		<li>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<img src="{{ asset('/img/blank.gif') }}" class="flag flag-{# Language sign #}" alt="default" /> <span> Česky {# Current lang #}</span> <i class="fa fa-angle-down"></i> </a>
+			<ul class="dropdown-menu pull-right" style="position: fixed;top: 70px;">
+				{# <li <?php if($jazyk_vlajky=='cz'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('cs');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-cz" alt="Czech Republic" /> Česky</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='sk'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('sk');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-sk" alt="" /> Slovensky</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='gb'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('en');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-gb" alt="English" /> English</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='de'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('de');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-de" alt="German" /> Deutsch</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='fr'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('fr');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-fr" alt="France" /> Français</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='pl'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('pl');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-pl" alt="Polski" /> Polski</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='ua'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('uk');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-ua" alt="Ukraine" /> Українська</a>
+                </li>
+                <li <?php if($jazyk_vlajky=='ru'){echo ' class="active"';} ?>>
+					<a href="javascript:obnovjazyk('ru');"><img src="<?php echo ASSETS_URL; ?>/img/blank.gif" class="flag flag-ru" alt="Russia" /> Русский язык</a>
+                </li>
+                #}
+			</ul>
+		</li>
+	</ul>
+
+    </span>
+
+    </header>
+    <div id="main" role="main">
+
+        <!-- MAIN CONTENT -->
+        <div id="content" class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+                    <h1 class="txt-color-red login-header-big"><?php echo $_COOKIE['prihlaseni_nazev_aplikace']; ?></h1>
+                    <div class="hero">
+                        <div class="pull-left login-desc-box-l">
+                            <h4 class="paragraph-header">
+                                {#   <?php /*readfile('http://www.vira.cz/biblicky-citat.php?utf-8');*/
+                        $citat = $funkce->citat();
+                                echo $citat['citat'].'<br />('.$citat['kniha'].' '.$citat['kapitola'].', '.$citat['vers'].')';
+                                ?>#}
+                            </h4><hr />
+                            <div class="login-app-icons" style="margin-top: 5px !important;">
+                                <a href="http://biblickedilo.cz/" target="_blank" title="České katolické biblické dílo" class="btn btn-danger btn-sm">Biblické dílo</a>
+                                <a href="https://www.ceskatelevize.cz/porady/tema/nabozenske/" target="_blank" title="kliknutím do sekce Náboženské pořady" class="btn btn-danger btn-sm">Česká televize</a>
+                                <a href="https://www.rozhlas.cz/nabozenstvi/portal/" target="_blank" title="Kliknutím přejdete do sekce Náboženství" class="btn btn-danger btn-sm">Český rozhlas</a><br /><br />
+                                <a href="http://www.liturgie.cz/" target="_blank" title="kliknutím přejdete do nového okna na web" class="btn btn-danger btn-sm">Liturgie.cz</a>
+                                <a href="https://www.pastorace.cz/" target="_blank" title="Podklady pro pastoraci a duchovní život" class="btn btn-danger btn-sm">Pastorace.cz</a>
+                                <a href="https://www.radiovaticana.cz/podrubrika.php?id=13" target="_blank" title="kliknutím přejdete do sekce Promluvy Svatého otce" class="btn btn-danger btn-sm">Rádio Vaticana</a><br /><br />
+                                <a href="https://www.teologicketexty.cz/" target="_blank" title="Časopis pro teoretické a praktické otázky teologie" class="btn btn-danger btn-sm">Teologické texty</a>
+                                <a href="http://catholica.cz/" target="_blank" title="Catholica.cz - Životy světců pro použití v homiliích" class="btn btn-danger btn-sm">Životopisy svatých</a>
+                            </div>
+                        </div>
+                        <!--<img src="<?php echo ASSETS_URL; ?>/img/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px">-->
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+                    <div class="well no-padding">
+                        <form autocomplete="off" action="{#  <?php echo APP_URL; ?>#}" id="login-form" class="smart-form client-form">
+                            <header>
+                                {# <?php echo $_COOKIE['prihlaseni_nadpis_prihlasit_se']; ?> #}
+                            </header>
+                            <fieldset>
+                                <section>
+                                    <label class="label">{#  <?php echo $_COOKIE['prihlaseni_email']; ?>#}</label>
+                                    <label class="input"> <i class="icon-append fa fa-user"></i>
+                                        <input type="email" name="email" value="" id="email" />
+                                        <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> <?php echo $_COOKIE['prihlaseni_info_email']; ?></b></label>
+                                </section>
+                                <section>
+                                    <label class="label">{#  <?php echo $_COOKIE['prihlaseni_heslo']; ?>#}</label>
+                                    <label class="input"> <i class="icon-append fa fa-lock"></i>
+                                        <input type="password" name="password" value="" id="password" />
+                                        <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> <?php echo $_COOKIE['prihlaseni_info_heslo']; ?></b> </label>
+                                    <!--<div class="note">
+                                        <a href="<?php echo APP_URL; ?>/forgotpassword.php">Forgot password?</a>
+                                    </div>-->
+                                </section>
+
+
+                                <div class="note" style="color: #c12e2e !important;">
+                                    <span id="hlaska"></span>
+                                </div>
+
+                                <!--<section>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="remember" checked="">
+                                        <i></i>Zůstat přihlášený</label>
+                                </section>-->
+                            </fieldset>
+                            <footer>
+                                <button type="submit" id="submit" class="btn btn-primary">
+                                    {#  <?php echo $_COOKIE['prihlaseni_prihlasit_se']; ?>#}
+                                </button>
+                            </footer>
+                        </form>
+                        <section>
+                            <?php echo $php->hlaska("warning","DEMO ÚČET","Upozornění pro uživatele, kteří by si rádi vyzkoušeli práci v systému agendafarnosti.cz. Prosím, kontaktujte mě emailem na vojtech@krystek.cz či telefonem na 733 721 386.<br />Rád k Vám přijedu, nebo se můžeme dohodnout na vzdáleném připojení a odprezentuji Vám funkcionality systému. V případě potřeby jsou další úpravy ke spokojnosti možné. :-) <br />Těším se na Vás<br />Vojtěch Krystek"); ?>
+                        </section>
+                    </div>
+                    <!--<h5 class="text-center"> - Or sign in using -</h5>
+                                    <ul class="list-inline text-center">
+                                        <li>
+                                            <a href="javascript:void(0);" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);" class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);" class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                    </ul>-->
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                       {#  <?php
+                    //RSS novinky
+
+                    function getContent() {
+                        //Thanks to https://davidwalsh.name/php-cache-function for cache idea
+                        $file = "../tmp/feed-cache.txt";
+                        $current_time = time();
+                        $expire_time = 5 * 60; //obnoveni co 5 minut
+                        if(file_exists($file)) {
+                            $file_time = filemtime($file);
+                        }
+                        if(file_exists($file) && ($current_time - $expire_time < $file_time)) {
+                            return file_get_contents($file);
+                        }
+                        else {
+                            $content = getFreshContent();
+                            file_put_contents($file, $content);
+                            return $content;
+                        }
+                    }
+                    function getFreshContent() {
+                        $html = "";
+                        $newsSource = array(
+                            array(
+                                "title" => "Katolický týdeník",
+                        "url" => "http://www.katyd.cz/rss/canal.xml"
+                        )
+                        );
+                        function getFeed($url){
+                        $rss = simplexml_load_file($url);
+                        $count = 0;
+                        $html .= '<ul>';
+                            foreach($rss->channel->item as$item) {
+                            $count++;
+                            if($count > 7){
+                            break;
+                            }
+                            $html .= '<li>'.Date("j.n.Y",StrToTime($item->pubDate)).': <a href="'.htmlspecialchars($item->link).'" target="_blank" title="'.htmlspecialchars($item->description).'">'.htmlspecialchars($item->title).'</a></li>';
+                            }
+                            $html .= '</ul>';
+                        return $html;
+                        }
+                        foreach($newsSource as $source) {
+                        $html .= '<h5 class="about-heading">'.$source["title"].'</h5>';
+                        $html .= getFeed($source["url"]);
+                        }
+                        return $html;
+                        }
+                        $file = 'http://www.katyd.cz/rss/canal.xml';
+                        $file_headers = @get_headers($file);
+                        if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                        $exists = false;
+                        }
+                        else {
+                        $exists = true;
+                        }
+
+                        if($exists) {
+                        print getContent();
+                        }
+
+
+
+
+
+
+
+
+                        ?>#}
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+
+                     {# <?php
+                    function getContent2() {
+                        //Thanks to https://davidwalsh.name/php-cache-function for cache idea
+                        $file = "../tmp/feed-cache2.txt";
+                        $current_time = time();
+                        $expire_time = 5 * 60;
+                        if(file_exists($file)) {
+                            $file_time = filemtime($file);
+                        }
+                        if(file_exists($file) && ($current_time - $expire_time < $file_time)) {
+                            return file_get_contents($file);
+                        }
+                        else {
+                            $content = getFreshContent2();
+                            file_put_contents($file, $content);
+                            return $content;
+                        }
+                    }
+                    function getFreshContent2() {
+                        $html = "";
+                        $newsSource = array(
+                            array(
+                                "title" => "církev.cz",
+                        "url" => "https://www.cirkev.cz/rss"
+                        )
+                        );
+                        function getFeed2($url){
+                        $rss = simplexml_load_file($url);
+                        $count = 0;
+                        $html .= '<ul>';
+                            foreach($rss->channel->item as$item) {
+                            $count++;
+                            if($count > 7){
+                            break;
+                            }
+                            $html .= '<li>'.Date("j.n.Y",StrToTime($item->pubDate)).': <a href="'.htmlspecialchars($item->link).'" target="_blank" title="'.htmlspecialchars($item->description).'">'.htmlspecialchars($item->title).'</a></li>';
+                            }
+                            $html .= '</ul>';
+                        return $html;
+                        }
+                        foreach($newsSource as $source) {
+                        $html .= '<h5 class="about-heading">'.$source["title"].'</h5>';
+                        $html .= getFeed2($source["url"]);
+                        }
+                        return $html;
+                        }
+
+                        $file = 'https://www.cirkev.cz/rss';
+                        $file_headers = @get_headers($file);
+                        if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                        $exists = false;
+                        }
+                        else {
+                        $exists = true;
+                        }
+
+                        if($exists) {
+                        print getContent2();
+                        }
+
+                        ?>#}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#  <?php } else {
+    echo '
+<div class="center">
+    <img src="img/loading.gif" />
+    <br /><strong> </strong>
+    </div>
+    <style>
+        .center{
+            position:absolute;
+            display:block;
+            left:50%;
+            margin-top:25vh;
+            margin-left:-50px;
+            text-align: center;
+        }
+    </style>
+    ';
+    } ?>#}
+    <!-- END MAIN PANEL -->
+
+
+{% endblock content %}
